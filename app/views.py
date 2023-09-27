@@ -28,7 +28,7 @@ def cliente(request):
 		is_admin = request.user.has_perm('auth.rol_admin')
 		if not is_cliente and not is_superuser and not is_admin:
 			return redirect(to="index")
-		return render(request, 'app/cliente/home.html')
+		return render(request, 'app/cliente/main.html')
 
 def soporte(request):
 		is_soporte = request.user.has_perm('auth.rol_soporteti')
