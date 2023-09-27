@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-Edge">
+        <meta name="viewport" content="width=device-width", initial-scale="1.0">
+        <title>Login Usuarios</title>
+        <link rel="stylesheet" href="{% static 'app/css/login.css' %}" />
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+        <style>
+            label{
+                display: none;
+            }
+        </style>
+</head>
+<body>
+    <div class="form-body">
+        <img src="{% static 'app/img/icono-cliente.png' %}" alt="user-login">
+        <p class="text">Bienvenido Hotel Pacific Reef</p>
+        <br>
+        <form action="" method="post" class="login-form">
+            {% csrf_token %}
+            {{ form }}
+            <button class="btn btn-primary" type="submit">Iniciar Sesión</button>
+            </form>
+    </div>
+<script>
+    // Personalizar placeholders de los inputs
+    const inputs = document.querySelectorAll('input');
+    inputs[1].setAttribute('placeholder', 'Email o nombre de usuario');
+    inputs[2].setAttribute('placeholder', 'Contraseña');
+</script>
+</body>
+</html>
