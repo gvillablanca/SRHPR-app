@@ -11,14 +11,14 @@ def index(request):
 		is_admin = request.user.has_perm('auth.rol_admin')
 
 		# se redirecciona a la vista correspondiente aplicando perfilamiento.
-		if is_cliente:
+		if is_admin or request.user.is_superuser:
+			return redirect(to="administracion")
+		elif is_cliente:
 			return redirect(to="cliente")
 		elif is_recepcion:
 			return redirect(to="recepcion")
 		elif is_soporte:
 			return redirect(to="soporte")
-		elif is_admin:
-			return redirect(to="administracion")
 		else:
 			return render(request, 'app/index.html')
 
