@@ -1,38 +1,118 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Página Web</title>
-    <link rel="stylesheet" href="../../css/styles.css">
-</head>
-<body>
-    <!-- Barra de navegación -->
-    <nav>
-        <ul>
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Correo</a></li>
-            <li><a href="#">Salir</a></li>
-        </ul>
-    </nav>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Cliente</title>
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+          <!-- CSS -->
+          <link rel="stylesheet" href="{% static 'app/css/clienteMain.css' %}" />
+      </head>
+      <body>
+        <header>
+          <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Hotel Pacific Reef</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Mail</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">@{{ user.username }}</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="{% url 'logout' %}">Cerrar sesión</a>
+                  </li>
+                  <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                      class="bi bi-person-circle" viewBox="0 0 16 16">
+                      <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                      <path fill-rule="evenodd"
+                        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                    </svg>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </header>
+
+        <head>
+          <h1 class="centrar-texto" >Catálogo de Habitaciones</h1>
+      </head>
 
     <!-- Contenido principal -->
     <div class="container">
         <!-- Carrusel de imágenes -->
-        <div class="carousel">
-            <img src="../../img/hotel1.jpg" alt="Imagen 1">
-            <img src="../../img/hotel2.jpg" alt="Imagen 2">
-            <img src="../../img/hotel3.jpg" alt="Imagen 3">
-            <img src="../../img/hotel4.jpg" alt="Imagen 4">
+
+        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+            <!-- Indicadores -->
+            <ol class="carousel-indicators">
+                <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
+                <li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
+                <li data-bs-target="#myCarousel" data-bs-slide-to="2"></li>
+                <li data-bs-target="#myCarousel" data-bs-slide-to="3"></li>
+            </ol>
+        
+            <!-- Slides -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="contenedor-imagen">
+                  <button>
+                    <img src={% static 'app/img/hotel1.jpg' %} class="imagen-igual" alt="Habitacion 1">
+                  </button>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="contenedor-imagen">
+                  <button>
+                    <img src={% static 'app/img/hotel2.jpg' %} class="imagen-igual" alt="Habitacion 2">
+                  </div>
+                  </button>
+                </div>
+                <div class="carousel-item">
+                  <div class="contenedor-imagen">
+                  <button>
+                    <img src={% static 'app/img/hotel3.jpg' %} class="imagen-igual" alt="Habitacion 3">
+                  </div>
+                  </button>
+                </div>
+                <div class="carousel-item">
+                  <div class="contenedor-imagen">
+                  <button>
+                    <img src={% static 'app/img/hotel4.jpg' %} class="imagen-igual" alt="Habitacion 4">
+                    </div>
+                  </button>
+                </div>
+            </div>
+        
+            <!-- Controles de navegación -->
+            <a class="carousel-control-prev" href="#myCarousel" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </a>
+            <a class="carousel-control-next" href="#myCarousel" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </a>
         </div>
 
-        <!-- Botones de navegación -->
-        <div class="navigation-buttons">
-            <button id="prev">Anterior</button>
-            <button id="next">Siguiente</button>
-        </div>
     </div>
 
     <script src="../../js/home.js"></script>
 </body>
+<footer class="text-center">@Todos los derechos reservados</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+  crossorigin="anonymous"></script>
+</body>
+
 </html>
